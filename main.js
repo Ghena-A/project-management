@@ -97,29 +97,27 @@ function showData() {
     let table = '';
     for (let i = 0; i < dataProdect.length; i++) {
         table += `<tr>
-            <td>${i+1}</td>
-            <td>${dataProdect[i].title}</td>
-            <td>${dataProdect[i].price}</td>
-            <td>${dataProdect[i].taxes}</td>
-            <td>${dataProdect[i].ads}</td>
-            <td>${dataProdect[i].discount}</td>
-            <td>${dataProdect[i].count}</td>
-            <td>${dataProdect[i].catagory}</td>
-            <td><button onclick="updateData(${i})">update</button></td>
-            <td><button onclick="deleteData(${i})">delete</button></td>
+            <td data-label="ID">${i + 1}</td>
+            <td data-label="Title">${dataProdect[i].title}</td>
+            <td data-label="Price">${dataProdect[i].price}</td>
+            <td data-label="Taxes">${dataProdect[i].taxes}</td>
+            <td data-label="Ads">${dataProdect[i].ads}</td>
+            <td data-label="Discount">${dataProdect[i].discount}</td>
+            <td data-label="Count">${dataProdect[i].count}</td>
+            <td data-label="Category">${dataProdect[i].catagory}</td>
+            <td data-label="Update"><button onclick="updateData(${i})">update</button></td>
+            <td data-label="Delete"><button onclick="deleteData(${i})">delete</button></td>
         </tr>`;
     }
 
-    // Set the innerHTML of the table
     document.getElementById('tbody').innerHTML = table;
-    //check if there data or not
+
     let deleteAll = document.getElementById('btnDelete');
     if (dataProdect.length > 0) {
-        deleteAll.innerHTML = `<button onclick="deleteAll()" >deleteAll (${dataProdect.length})</button>`
+        deleteAll.innerHTML = `<button onclick="deleteAll()">deleteAll (${dataProdect.length})</button>`;
     } else {
-        deleteAll.innerHTML = ' ';
-     }
-    
+        deleteAll.innerHTML = '';
+    }
 }
 showData();
 //Delete
