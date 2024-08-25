@@ -88,15 +88,40 @@ th, td {
   
   @media (max-width: 767.98px) {
     table {
-      font-size: 14px; 
+        font-size: 14px;
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: separate;
     }
-    
+
     th, td {
-      padding: 6px; 
+        padding: 6px;
+        word-wrap: break-word;
     }
-    
-   
-    table {
-      table-layout: fixed; 
-      width: 100%;
-    }}
+
+    /* Hide table headers for mobile */
+    th{
+        display: none;
+    }
+
+    /* Display table rows as blocks on mobile */
+    tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    tbody tr td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #f2f2f2;
+    }
+}
